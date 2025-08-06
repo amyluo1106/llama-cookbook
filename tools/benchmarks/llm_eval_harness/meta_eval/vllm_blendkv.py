@@ -1,4 +1,5 @@
 import os
+
 import copy
 from typing import Dict, List, Literal, Optional, Tuple, Union
 
@@ -21,7 +22,7 @@ class VLLMCacheBlend(VLLM):
         recomp_ratio: str = "0.15",
         use_layerwise: bool = True,
         use_local_cpu: bool = True,
-        max_local_cpu_size: int = 50,
+        max_local_cpu_size: int = 40,
         *args,
         **kwargs,
     ):
