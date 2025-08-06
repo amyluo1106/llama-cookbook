@@ -6,9 +6,9 @@ evals_dataset: "meta-llama/Llama-3.1-8B-Instruct-evals" # The name of the 3.1 ev
 tasks: "meta_mmlu_pro_instruct" # Available tasks for instruct model: "meta_math_hard", "meta_gpqa", "meta_mmlu_pro_instruct", "meta_ifeval"; or just use "meta_instruct" to run all of them.
 # Available tasks for pretrain model: "meta_bbh", "meta_mmlu_pro_pretrain"; or just use "meta_pretrain" to run all of them.
 
-tensor_parallel_size: 1 # The VLLM argument that speicify the tensor parallel size for the model, eg how many GPUs to use for a model copy.
+tensor_parallel_size: 4 # The VLLM argument that speicify the tensor parallel size for the model, eg how many GPUs to use for a model copy.
 
-data_parallel_size: 4 # The VLLM argument that speicify the data parallel size for the model, eg how copies of model will be used.
+data_parallel_size: 1 # The VLLM argument that speicify the data parallel size for the model, eg how copies of model will be used.
 
 gpu_memory_utilization: 0.9 #The VLLM argument that speicify gpu memory utilization, the rest will be reserved for KV cache.
 

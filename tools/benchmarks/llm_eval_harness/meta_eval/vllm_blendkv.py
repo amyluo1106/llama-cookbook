@@ -1,6 +1,3 @@
-# lm_eval --model vllm_cacheblend   --model_args pretrained=meta-llama/Llama-3.1-8B-Instruct,tensor_parallel_size=1,dtype=auto,gpu_memory_utilization=0.9,data_parallel_size=1,max_model_len=8192,add_bos_token=True,seed=42,enforce_eager=True --tasks meta_mmlu_pro_instruct --batch_size auto --output_path eval_results --include_path /workplace/amyluo/llama-cookbook/tools/benchmarks/llm_eval_harness/meta_eval/work_dir --seed 42  --log_samples
-# lm_eval --model vllm_cacheblend   --model_args pretrained=/home/amyluo/Llama,tensor_parallel_size=4,dtype=auto,gpu_memory_utilization=0.9,data_parallel_size=1,max_model_len=8192,add_bos_token=True,seed=42,enforce_eager=True --tasks meta_mmlu_pro_instruct --batch_size auto --output_path eval_results --include_path /workplace/amyluo/llama-cookbook/tools/benchmarks/llm_eval_harness/meta_eval/work_dir --seed 42  --log_samples
-# lm_eval --model vllm_cacheblend --model_args pretrained=meta-llama/Llama-3.1-8B-Instruct,tensor_parallel_size=1,dtype=auto,gpu_memory_utilization=0.9,data_parallel_size=1,max_model_len=8192,add_bos_token=True,seed=42,enable_prefix_caching=False --tasks meta_mmlu_pro_instruct --batch_size 2 --output_path eval_results --include_path ./work_dir --seed 42  --log_samples
 import os
 import copy
 from typing import Dict, List, Literal, Optional, Tuple, Union
@@ -24,7 +21,7 @@ class VLLMCacheBlend(VLLM):
         recomp_ratio: str = "0.15",
         use_layerwise: bool = True,
         use_local_cpu: bool = True,
-        max_local_cpu_size: int = 150,
+        max_local_cpu_size: int = 50,
         *args,
         **kwargs,
     ):
